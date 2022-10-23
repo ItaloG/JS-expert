@@ -1,1 +1,23 @@
-[{"id":"8f4066b7-a726-43b2-8e68-750d1a034294","name":"Escalade","releaseYear":2021,"available":true,"gasAvailable":true},{"id":"3952eb3f-aba5-4457-ba51-ea202ddf6b14","name":"Element","releaseYear":2022,"available":true,"gasAvailable":true},{"id":"c27af28a-aec8-4a6a-80dd-5cb1d8e8c861","name":"Ranchero","releaseYear":2022,"available":true,"gasAvailable":true}]
+[
+    {
+        "id": "8f4066b7-a726-43b2-8e68-750d1a034294",
+        "name": "Escalade",
+        "releaseYear": 2021,
+        "available": true,
+        "gasAvailable": true
+    },
+    {
+        "id": "3952eb3f-aba5-4457-ba51-ea202ddf6b14",
+        "name": "Element",
+        "releaseYear": 2022,
+        "available": true,
+        "gasAvailable": true
+    },
+    {
+        "id": "c27af28a-aec8-4a6a-80dd-5cb1d8e8c861",
+        "name": "Ranchero",
+        "releaseYear": 2022,
+        "available": true,
+        "gasAvailable": true
+    }
+]

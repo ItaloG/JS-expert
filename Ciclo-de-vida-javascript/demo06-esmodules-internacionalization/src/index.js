@@ -2,6 +2,8 @@ import database from "../database.json";
 import Person from "./person.js";
 import TerminalController from "./terminalController.js";
 import { save } from "./repository.js";
+import dotenv from 'dotenv'
+dotenv.config()
 
 const DEFAULT_LANG = "pt-BR";
 const STOP_TERM = ":q";

@@ -1,5 +1,5 @@
 import database from "../database.json";
-import Person from "./person";
+import Person from "./person.js";
 import TerminalController from "./terminalController.js";
 
 const DEFAULT_LANG = "pt-BR";
@@ -18,6 +18,7 @@ async function mainLoop() {
     }
 
     const person = Person.generateInstanceFromString(answer);
+    terminalController.updateTable(person.formatted(DEFAULT_LANG))
     return mainLoop();
   } catch (error) {
     console.error("DEU RUIM**", error);

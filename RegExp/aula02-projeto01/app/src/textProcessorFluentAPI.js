@@ -1,3 +1,4 @@
+const { evaluateRegex } = require("./util");
 // O objetico do Fluent API é executar tarefas
 // como um pipeline, step by step
 // e no fim, chama o build. MUITO similar ao padrão Builder
@@ -24,12 +25,28 @@ class TextProcessorFluentAPI {
     // g -> global
     // m -> multiline
     // i -> insensitive
-    
-    const matchPerson = /(?<=[contratante | contratado]:\s{1})(?!\s)(.*\n.*?)$/gmi
-    const onlyPerson = this.#content.match(matchPerson)
-    // console.log(onlyPerson);
-    this.#content = onlyPerson
 
+    const matchPerson = evaluateRegex(
+      /(?<=[contratante | contratado]:\s{1})(?!\s)(.*\n.*?)$/gim
+    );
+    const onlyPerson = this.#content.match(matchPerson);
+    // console.log(onlyPerson);
+    this.#content = onlyPerson;
+
+    return this;
+  }
+
+  divideTextInColumns() {
+    const splitRegex = evaluateRegex(/,/);
+    this.#content = this.#content.map((line) => line.split(splitRegex));
+    return this;
+  }
+
+  removeEmptyCharacters() {
+    const trimSpaces = evaluateRegex(/^\s+|\s+$|\n/g);
+    this.#content = this.#content.map((line) =>
+      line.map((item) => item.replace(trimSpaces, ""))
+    );
     return this;
   }
 

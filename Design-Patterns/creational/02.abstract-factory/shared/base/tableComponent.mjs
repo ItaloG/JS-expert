@@ -1,4 +1,4 @@
-import NotImplementedException from "./notImplementedException.mjs";
+import NotImplementedException from "../notImplementedException.mjs";
 
 export default class TableComponent {
   render(data) {

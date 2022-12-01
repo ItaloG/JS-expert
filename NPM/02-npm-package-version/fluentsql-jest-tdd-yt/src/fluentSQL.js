@@ -110,6 +110,7 @@ export default class FluentSQLBuilder {
 
     const grouped = this.#performCountBy(results);
     const orderedResult = this.#performOrderBy(grouped);
+
     return orderedResult;
   }
 }

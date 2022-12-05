@@ -1,0 +1,9 @@
+fkill-cli -> mata processos de forma simples
+
+npkill -> ajuda a encontrar e remover pastas inutilazadas na node_modules
+
+awesome-nodejs -> repositorio para buscar mais possibilidades com o node
+
+terminal-kit -> traz recurcos para embelezar o terminal
+
+blessed e blessed-contrib -> traz recurcos para embelezar o terminal

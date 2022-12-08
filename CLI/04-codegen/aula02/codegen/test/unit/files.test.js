@@ -13,6 +13,8 @@ describe("#Layers - Files Structure", () => {
     layers: defaultLayers,
     componentName: "heroes",
   };
+  const repositoryLayer = `${config.componentName}Repository`;
+  const serviceLayer = `${config.componentName}Service`;
 
   beforeEach(() => {
     jest.restoreAllMocks();
@@ -51,7 +53,47 @@ describe("#Layers - Files Structure", () => {
     );
   });
 
-  test("service should have repository as dependency", () => {
-    expect(1 + 1).toEqual(2);
+  test("service should have repository as dependency", async () => {
+    const writeFileSpy = jest
+      .spyOn(fsPromises, fsPromises.writeFile.name)
+      .mockResolvedValue();
+    jest
+      .spyOn(templates, templates.serviceTemplate.name)
+      .mockReturnValue({ fileName: "", template: "" });
+    const myConfig = {
+      ...config,
+      layers: ["repository", "service"],
+    };
+
+    const expected = { success: true };
+    const result = await createFiles(myConfig);
+    expect(result).toStrictEqual(expected);
+    expect(writeFileSpy).toHaveBeenCalledTimes(myConfig.layers.length);
+    expect(templates.serviceTemplate).toHaveBeenCalledWith(
+      myConfig.componentName,
+      repositoryLayer
+    );
+  });
+
+  test("factory should have repository and service as dependency", async () => {
+    const writeFileSpy = jest
+      .spyOn(fsPromises, fsPromises.writeFile.name)
+      .mockResolvedValue();
+    jest
+      .spyOn(templates, templates.factoryTemplate.name)
+      .mockReturnValue({ fileName: "", template: "" });
+    const myConfig = {
+      ...config,
+    };
+
+    const expected = { success: true };
+    const result = await createFiles(myConfig);
+    expect(result).toStrictEqual(expected);
+    expect(writeFileSpy).toHaveBeenCalledTimes(myConfig.layers.length);
+    expect(templates.factoryTemplate).toHaveBeenCalledWith(
+      myConfig.componentName,
+      repositoryLayer,
+      serviceLayer
+    );
   });
 });

@@ -1,0 +1,11 @@
+APM
+- new relic
+*Qual serviço está demorando mais tempo
+*Qual query de banco de dados pode estar retornando mais dados que o necessário ou até mesmo, causando lentidão entre requisições
+*Qual serviço está apresentando erros com mais frequência
+
+- autocannon
+*Faz teste de força bruta em um endpoint
+
+- 0x
+*Mostra qual função demorou mais pra terminar
